@@ -24,7 +24,7 @@ const createJob = async (req, res) => {
   req.body.createdBy = req.user.userId
   const job = await Job.create(req.body)
   if (!job) {
-    throw new BadRequestError('')
+    throw new BadRequestError('Job not created')
   }
   res.status(StatusCodes.CREATED).json({job})
 }
